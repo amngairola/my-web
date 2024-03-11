@@ -2,24 +2,24 @@ import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import Loader from "../Loader";
-const Computers = () => {
+const Computers = ({ isMobile }) => {
   const computer = useGLTF("../desktop_pc/scene.gltf");
 
   return (
     <mesh>
-      <hemisphereLight intensity={0.15} groundColor="black" />
+      <hemisphereLight intensity={4} groundColor="black" />
       <pointLight intensity={1} />
       <spotLight
-        position={[-1, 3, 1]}
+        position={[-2, 2, 5]}
         angle={2}
-        intensity={400}
+        intensity={300}
         castShadow
         shadow-mapSize={1024}
       />
       <primitive
         object={computer.scene}
-        scale={0.75}
-        position={[-0.375, -3.25, -0.75]}
+        scale={isMobile ? 0.7 : 0.75}
+        position={isMobile ? [0, -3, -2.2] : [-0.57, -3.7, -1.5]}
         rotation={[-0.01, -0.2, -0.01]}
       />
     </mesh>
@@ -27,6 +27,32 @@ const Computers = () => {
 };
 
 const ComputersCanvas = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // useEffect callback function starts here
+
+    // Define a media query for window width less than or equal to 500 pixels
+    const mediaQuery = window.matchMedia("(max-window: 500px)");
+
+    // Set the initial state of the 'isMobile' variable based on the media query result
+    setIsMobile(mediaQuery.matches);
+
+    // Define a function to handle changes in the media query
+    const handleMediaQueryChange = (event) => {
+      // Update the 'isMobile' state based on the new media query result
+      setIsMobile(event.matches);
+    };
+
+    // Add an event listener to the media query to track changes
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+
+    // Cleanup function to remove the event listener when the component unmounts or the effect is re-run
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    };
+  }, []);
+
   return (
     <Canvas
       frameloop="demand"
@@ -42,7 +68,7 @@ const ComputersCanvas = () => {
           minPolarAngle={Math.PI / 2}
         />
       </Suspense>
-      <Computers />
+      <Computers isMobile={isMobile} />
 
       <Preload all />
     </Canvas>
