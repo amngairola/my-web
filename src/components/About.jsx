@@ -46,7 +46,7 @@ const About = () => {
         C, C++, Java, and JavaScript. Committed to collaboration,
         problem-solving, and user-centric design. Actively engaged in tech
         community, open-source projects, and continuous learning. Let's connect
-        and build something remarkable!
+        and build something remarkable! github
       </motion.p>
 
       <div className="mt-20 flex flex-wrap gap-10">
