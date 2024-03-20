@@ -7,6 +7,8 @@ import Link from "./Link.png";
 import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
+import un from "./un.png";
+import gclone from "./gclone.png";
 
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
@@ -61,4 +63,6 @@ export {
   carrent,
   jobit,
   tripguide,
+  un,
+  gclone,
 };

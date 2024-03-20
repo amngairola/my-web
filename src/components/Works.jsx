@@ -7,9 +7,17 @@ import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 import { Tilt } from "react-tilt";
 
-const ProjectCard = ({ index, name, description, image, source_code_link }) => {
-  const openLink = () => {
-    window.open(source_code_link, "_blank");
+const ProjectCard = ({
+  index,
+  name,
+  description,
+  image,
+  source_code_link,
+  live_link,
+  tags,
+}) => {
+  const openLink = (link) => {
+    window.open(link, "_blank");
   };
 
   return (
@@ -30,7 +38,7 @@ const ProjectCard = ({ index, name, description, image, source_code_link }) => {
           />
           <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
             <div
-              onClick={openLink}
+              onClick={() => openLink(source_code_link)}
               className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
             >
               <img
@@ -40,7 +48,7 @@ const ProjectCard = ({ index, name, description, image, source_code_link }) => {
               />
             </div>
             <div
-              onClick={openLink}
+              onClick={() => openLink(live_link)}
               className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
             >
               <img
@@ -52,8 +60,18 @@ const ProjectCard = ({ index, name, description, image, source_code_link }) => {
           </div>
         </div>
         <div className="mt-5">
-          <h3 className="text-white font-bold text-2xl">{name}</h3>
-          <p className="mt-2 text-secondary text-base">{description}</p>
+          <h3 className="text-white font-bold text-[24px]">{name}</h3>
+          <p className="mt-2 text-secondary text-[14px]">{description}</p>
+        </div>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <p
+              key={`${name}-${tag.name}`}
+              className={`text-[14px] ${tag.color}`}
+            >
+              #{tag.name}
+            </p>
+          ))}
         </div>
       </Tilt>
     </motion.div>
@@ -71,13 +89,14 @@ const Works = () => {
       <div className="w-full flex">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className="mt-3 text-secondary text-base max-w-3xl leading-[30px]"
+          className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
-          In the projects section, I showcase a diverse portfolio highlighting
-          projects developed using advanced methodologies. Prioritizing user
-          experience through responsive interfaces and seamless interactions, I
-          employ effective state management techniques to ensure scalability and
-          efficiency across various domains.
+          In the projects section of my website, I present a diverse portfolio
+          highlighting projects developed using advanced methodologies. I
+          prioritize user experience through responsive interfaces and seamless
+          interactions. Employing effective state management techniques, my
+          projects ensure scalability and efficiency. With a commitment to
+          innovation, my portfolio reflects versatility across various domains.
         </motion.p>
       </div>
       <div className="mt-20 flex flex-wrap gap-7">
