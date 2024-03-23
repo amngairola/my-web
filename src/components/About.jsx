@@ -40,7 +40,7 @@ const About = () => {
       </motion.div>
       <motion.p
         variants={fadeIn("", " ", 0.1, 1)}
-        className="mt-4 text-secondary text-[17px] max-w-3xl  leading-[30px]"
+        className="mt-1 text-secondary text-[17px] max-w-3xl  leading-[30px]"
       >
         Passionate B.Tech. Computer Science student specializing in full-stack
         development. Experienced in front-end and back-end solutions. Proficient
@@ -51,7 +51,7 @@ const About = () => {
         and build something remarkable! github
       </motion.p>
 
-      <div className="mt-20 flex flex-wrap gap-10">
+      <div className="mt-10 flex flex-wrap gap-10">
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}

@@ -4,12 +4,10 @@ import {
   About,
   Contact,
   Experience,
-  Feedbacks,
   Hero,
   Navbar,
   Works,
   Tech,
-  StarsCanvas,
 } from "./components";
 import { Nav } from "react-bootstrap";
 
@@ -25,10 +23,8 @@ function App() {
         <Experience />
         <Tech />
         <Works />
-        {/* <Feedbacks /> */}
         <div className="relative z-0">
           <Contact />
-          <StarsCanvas />
         </div>
       </div>
     </BrowserRouter>
