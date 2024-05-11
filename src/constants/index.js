@@ -25,6 +25,7 @@ import {
   threejs,
   un,
   gclone,
+  threads,
 } from "../assets";
 
 export const navLinks = [
@@ -134,6 +135,28 @@ const experiences = [
 
 const projects = [
   {
+    name: "GenericThread",
+    description:
+      "a web app with functionalities similar to Meta Thread. It features Google and Git authentication, image sharing with other users, and a like feature for photos",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "firebase",
+        color: "green-text-gradient",
+      },
+      {
+        name: "tailwind",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: threads,
+    source_code_link: "https://github.com/amngairola/messanger",
+    live_link: "https://genericthread.vercel.app/",
+  },
+  {
     name: "BLOG APP",
     description:
       "Unvilling, a blog platform designed for ease of use and clarity",
@@ -147,6 +170,10 @@ const projects = [
         color: "green-text-gradient",
       },
       {
+        name: "appwrite",
+        color: tertiary,
+      },
+      {
         name: "tailwind",
         color: "pink-text-gradient",
       },
@@ -158,7 +185,7 @@ const projects = [
   {
     name: "Google UI Clone",
     description:
-      "Unvilling, a blog platform designed for ease of use and clarity",
+      "google ui clone , explore api handling and tailwind for the style",
     tags: [
       {
         name: "react",
