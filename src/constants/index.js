@@ -171,7 +171,7 @@ const projects = [
       },
       {
         name: "appwrite",
-        color: tertiary,
+        color: "read-text-gradient",
       },
       {
         name: "tailwind",

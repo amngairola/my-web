@@ -10,16 +10,16 @@ const Computers = ({ isMobile }) => {
       <hemisphereLight intensity={4} groundColor="black" />
       <pointLight intensity={1} />
       <spotLight
-        position={[-2, 2, 5]}
-        angle={2}
+        position={[-4, 2, 2]}
+        angle={-5}
         intensity={300}
         castShadow
         shadow-mapSize={1024}
       />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.7 : 0.75}
-        position={isMobile ? [0, -3, -2.2] : [-0.57, -3.7, -1.5]}
+        scale={isMobile ? 0.45 : 0.55}
+        position={isMobile ? [-0.67, -2.4, -0.6] : [-0.57, -3.7, -1.5]}
         rotation={[-0.01, -0.2, -0.01]}
       />
     </mesh>
@@ -33,33 +33,31 @@ const ComputersCanvas = () => {
     // useEffect callback function starts here
 
     // Define a media query for window width less than or equal to 500 pixels
-    const mediaQuery = window.matchMedia("(max-window: 500px)");
+    const mediaQuery = window.matchMedia("(max-width:  400px)");
 
-    // Set the initial state of the 'isMobile' variable based on the media query result
     setIsMobile(mediaQuery.matches);
 
-    // Define a function to handle changes in the media query
     const handleMediaQueryChange = (event) => {
-      // Update the 'isMobile' state based on the new media query result
       setIsMobile(event.matches);
     };
 
-    // Add an event listener to the media query to track changes
     mediaQuery.addEventListener("change", handleMediaQueryChange);
 
-    // Cleanup function to remove the event listener when the component unmounts or the effect is re-run
     return () => {
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
   }, []);
 
+  const cameraPosition = isMobile ? [8, 0, 5] : [20, 7, 2];
+  const cameraFOV = isMobile ? 55 : 25;
   return (
     <Canvas
       frameloop="demand"
       shadows
       dpr={[1, 2]}
-      camera={{ position: [20, 3, 5], fov: 25 }}
+      camera={{ position: cameraPosition, fov: cameraFOV }}
       gl={{ preserveDrawingBuffer: true }}
+      className="w-full h-screen  p-3"
     >
       <Suspense fallback={<Loader />}>
         <OrbitControls

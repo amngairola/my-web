@@ -47,8 +47,8 @@ const About = () => {
         in MERN stack – React, Node.js, Express.js, MongoDB. Skilled polyglot in
         C, C++, Java, and JavaScript. Committed to collaboration,
         problem-solving, and user-centric design. Actively engaged in tech
-        community, open-source projects, and continuous learning. Let's connect
-        and build something remarkable! github
+        community, and continuous learning. Let's connect and build something
+        remarkable!
       </motion.p>
 
       <div className="mt-10 flex flex-wrap gap-10">
