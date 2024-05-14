@@ -10,7 +10,7 @@ const Computers = ({ isMobile }) => {
       <hemisphereLight intensity={4} groundColor="black" />
       <pointLight intensity={1} />
       <spotLight
-        position={[-4, 2, 2]}
+        position={isMobile ? [8, -4, 2] : [4, -5, 2]}
         angle={-5}
         intensity={300}
         castShadow
@@ -18,8 +18,8 @@ const Computers = ({ isMobile }) => {
       />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.45 : 0.55}
-        position={isMobile ? [-0.67, -2.4, -0.6] : [-0.57, -3.7, -1.5]}
+        scale={isMobile ? 0.35 : 0.55}
+        position={isMobile ? [1.98, -1.4, -0.6] : [-2.57, -2.7, -1.5]}
         rotation={[-0.01, -0.2, -0.01]}
       />
     </mesh>
@@ -33,7 +33,7 @@ const ComputersCanvas = () => {
     // useEffect callback function starts here
 
     // Define a media query for window width less than or equal to 500 pixels
-    const mediaQuery = window.matchMedia("(max-width:  400px)");
+    const mediaQuery = window.matchMedia("(max-width:  412px)");
 
     setIsMobile(mediaQuery.matches);
 

@@ -12,7 +12,7 @@ const ServiceCard = ({ index, title, icon }) => {
   return (
     <Tilt className="xs:w-[200px] w-full ">
       <motion.div
-        variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
+        variants={fadeIn("right", "spring", 0.7 * index, 0.75)}
         className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card  "
       >
         <div
@@ -34,21 +34,20 @@ const ServiceCard = ({ index, title, icon }) => {
 const About = () => {
   return (
     <>
-      <motion.div variants={textVariant()}>
+      <motion.div variants={textVariant(0.2)}>
         <p className={styles.sectionSubText}>Inroduction</p>
         <h2 className={styles.sectionHeadText}> overView</h2>
       </motion.div>
       <motion.p
-        variants={fadeIn("", " ", 0.1, 1)}
+        variants={fadeIn("", " ", 0.3, 1)}
         className="mt-1 text-secondary text-[17px] max-w-3xl  leading-[30px]"
       >
-        Passionate B.Tech. Computer Science student specializing in full-stack
-        development. Experienced in front-end and back-end solutions. Proficient
-        in MERN stack – React, Node.js, Express.js, MongoDB. Skilled polyglot in
-        C, C++, Java, and JavaScript. Committed to collaboration,
-        problem-solving, and user-centric design. Actively engaged in tech
-        community, and continuous learning. Let's connect and build something
-        remarkable!
+        B.Tech. Computer Science student specializing in full-stack development.
+        Experienced in front-end and back-end solutions. Proficient in MERN
+        stack – React, Node.js, Express.js, MongoDB. Skilled polyglot in C, C++,
+        Java, and JavaScript. Committed to collaboration, problem-solving, and
+        user-centric design. Actively engaged in tech community, and continuous
+        learning. Let's connect and build something remarkable!
       </motion.p>
 
       <div className="mt-10 flex flex-wrap gap-10">
